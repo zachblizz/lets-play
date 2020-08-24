@@ -13,7 +13,7 @@ type Props = {
 type Size = Record<"width" | "height", number>;
 
 function Card({ size, full, children }: Props) {
-    const fullWidth = React.useMemo(() => Layout.window.width - 15, []);
+    const fullWidth = React.useMemo(() => Layout.window.width - 30, []);
     const sizes = React.useMemo<Record<Sizes, Size>>(() => ({
         "sm": { width: full ? fullWidth : 90, height: 90 },
         "md": { width: full ? fullWidth : 150, height: 150 },
