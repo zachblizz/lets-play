@@ -48,6 +48,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     scrollView: {
-        marginVertical: 15,
+        width: Layout.window.layoutWidth,
+        marginTop: 15,
+        marginBottom: 5
     }
 });

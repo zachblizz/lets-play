@@ -28,7 +28,7 @@ function LookingForList() {
 
     return (
         <FlatList
-            style={{ height: 330, marginBottom: 10 }}
+            style={{ height: 335, marginBottom: 10 }}
             data={currentlyLooking}
             refreshControl={
                 <RefreshControl
