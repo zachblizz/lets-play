@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text as DefaultText, View as DefaultView } from 'react-native';
+import { Text as DefaultText, View as DefaultView, StyleSheet } from 'react-native';
 
 import Colors from '../constants/Colors';
 // import useColorScheme from '../hooks/useColorScheme';
@@ -40,3 +40,38 @@ export function View(props: ViewProps) {
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
+
+export const mainStyles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    marginHorizontal: 10
+  },
+  inline: {
+    display: "flex",
+    flexDirection: "row",
+    paddingVertical: 2,
+    alignItems: "center",
+  },
+  columnInline: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  evently: {
+    justifyContent: "space-evenly"
+  },
+  between: {
+    justifyContent: "space-between"
+  },
+  badge: {
+    // width: 45,
+    height: 30,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+    // backgroundColor: Colors.silver,
+    borderRadius: 50,
+    textAlign: "center",
+    fontWeight: "bold"
+  }
+});

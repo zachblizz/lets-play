@@ -1,55 +1,16 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Alert } from 'react-native';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-
-import Card from "../components/ui/Card";
-import Icon from "../components/ui/Icon";
+import { View } from 'react-native';
 import Header from "../components/Header";
-
-
-import { SportTypes } from '../types';
 import LookingForList from '../components/Home/LookingForList';
-import Layout from '../constants/Layout';
+import New from '../components/New';
+import { mainStyles } from '../components/Themed';
 
-export default function Home() {
-    const sports = React.useMemo<SportTypes[]>(() => ([
-        "tennis",
-        "baseball",
-        "football",
-        "basketball",
-        "soccer"
-    ]), []);
-
-
+export default function Home(props: any) {
     return (
-        <View style={styles.container}>
+        <View style={mainStyles.container}>
             <Header></Header>
-            <ScrollView style={styles.scrollView} horizontal>
-                {sports.map(s => (
-                    <TouchableOpacity key={s} onPress={() => Alert.alert(s)}>
-                        <Card size="sm">
-                            <>
-                                <Icon name={s} />
-                                <Text style={{ marginTop: 10, textTransform: "capitalize" }}>{s}</Text>
-                            </>
-                        </Card>
-                    </TouchableOpacity>
-                ))}
-            </ScrollView>
             <LookingForList />
+            <New {...props} />
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        display: "flex",
-        flexDirection: "column",
-        marginHorizontal: 10
-    },
-    scrollView: {
-        width: Layout.window.layoutWidth,
-        marginTop: 15,
-        marginBottom: 5
-    }
-});

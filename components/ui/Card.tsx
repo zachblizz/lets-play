@@ -8,11 +8,12 @@ type Props = {
     size: Sizes;
     children: JSX.Element;
     full?: boolean;
+    moreStyles?: any;
 }
 
 type Size = Record<"width" | "height", number>;
 
-function Card({ size, full, children }: Props) {
+function Card({ size, full, children, moreStyles }: Props) {
     const fullWidth = React.useMemo(() => Layout.window.layoutWidth, []);
     const sizes = React.useMemo<Record<Sizes, Size>>(() => ({
         "sm": { width: full ? fullWidth : 90, height: 90 },
@@ -21,7 +22,7 @@ function Card({ size, full, children }: Props) {
     }), []);
 
     return (
-        <View style={[styles.container, sizes[size]]}>
+        <View style={[styles.container, sizes[size], moreStyles]}>
             {children}
         </View>
     );
@@ -34,16 +35,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#fff',
         padding: 10,
+        marginHorizontal: 3,
         marginVertical: 5,
-        borderRadius: 4,
+        borderRadius: 10,
         borderColor: "#eee",
         borderWidth: 1,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.12,
-        shadowRadius: 2.22,
-
-        elevation: 3,
     }
 })
 
